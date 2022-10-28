@@ -2,7 +2,7 @@ package module7
 
 import groovy.io.FileType
 
-class demo_regex {
+class demo_regex_replacechars {
     static void main(String[] args) {
 
         File dir = new File("c:/groovy/logs")
@@ -16,15 +16,14 @@ class demo_regex {
                 String line;
                 it.withReader {
                     while ( (line = it.readLine()) != null ){
-                        //if (line =~ "(?i)Amex|Visa"){
-                        //if (line !=~ "(?i)Amex|Visa"){
-                        // A "\d" regex matches one or more digits
-//                        if (line =~ "card[1-5]"){
-                        if (line =~ /card[\d+]/){
-                            println("Credit card found")
-                            output.withWriterAppend {
-                                it.writeLine("Credit Card Found")
-                            }
+//                        def pattern = /\d+(?=\d{4})/
+                        def pattern = /(\d+)(?=\d{4})/
+                        def match = (line =~ pattern)
+                        if(match.find()){
+                            def str = match.group(1)
+                           //line = line.replaceFirst(pattern, "************")
+                            line = line.replaceFirst(pattern, "*"*str.length())
+                            println(line)
                         }
                     }
                 }
