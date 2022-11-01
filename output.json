@@ -1,0 +1,26 @@
+{
+    "cards": {
+        "card": [
+            {
+                "name": "visa",
+                "num_digits": 16
+            },
+            {
+                "name": "visa",
+                "num_digits": 16
+            },
+            {
+                "name": "visa",
+                "num_digits": 16
+            },
+            {
+                "name": "visa",
+                "num_digits": 16
+            },
+            {
+                "name": "amex",
+                "num_digits": 15
+            }
+        ]
+    }
+}

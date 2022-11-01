@@ -1,0 +1,22 @@
+<cards>
+  <card>
+    <name>visa</name>
+    <digits>16</digits>
+  </card>
+  <card>
+    <name>visa</name>
+    <digits>16</digits>
+  </card>
+  <card>
+    <name>visa</name>
+    <digits>16</digits>
+  </card>
+  <card>
+    <name>visa</name>
+    <digits>16</digits>
+  </card>
+  <card>
+    <name>amex</name>
+    <digits>15</digits>
+  </card>
+</cards>
