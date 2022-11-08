@@ -1,0 +1,39 @@
+package com.kht.groovyrest.service
+
+import org.springframework.stereotype.Service
+
+import com.kht.groovyrest.entity.Product
+
+@Service
+class IProductServiceImpl implements IProductService {
+
+	@Override
+	public List<Product> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Product findById(Long productId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Product saveProduct(Product product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Product updateProduct(Long productId, Object Product) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Product deleteProduct(Long productId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

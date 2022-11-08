@@ -1,0 +1,9 @@
+package com.kht.groovyrest.repository
+
+import org.springframework.data.repository.CrudRepository
+import org.springframework.stereotype.*
+
+@Repository
+interface IVariantRepository extends CrudRepository<Variant, Long> {
+
+}

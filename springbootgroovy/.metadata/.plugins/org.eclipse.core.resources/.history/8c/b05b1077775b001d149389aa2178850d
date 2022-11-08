@@ -1,0 +1,4 @@
+package com.kht.groovyrest.service
+
+class IProductServiceImpl {
+}

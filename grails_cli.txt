@@ -1,0 +1,34 @@
+grails -version
+
+grails create-app app_name
+
+grails create-app com.kht.grails-app
+
+Create Domains:
+
+grails create-domain-class com.kht.student
+
+Create Service:
+
+grails create-service com.kht.student
+
+Create Controller:
+
+grails create-controller com.kht.student
+	
+Generate Views for specific domain:
+
+generate-views com.kht.student
+
+http://localhost:8080/student/show/1
+
+
+
+
+
+
+
+
+
+
+

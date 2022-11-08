@@ -1,0 +1,74 @@
+https://gsp.grails.org/latest/guide/tags.html
+
+By convention, Grails will render a view based on controller name and action. For example, the index() action from StudentController will resolve to /grails-app/views/student/index.gsp
+
+Let's start with implementing the view /grails-app/views/student/index.gsp, which will display a list of students. We'll use the tag <f:table/> to create an HTML table displaying all students returned from the index() action in our controller.
+
+By convention, when we respond with a list of objects, Grails will add the “List” suffix to the model name so that we can access the list of student objects with the variable studentList:
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="layout" content="main" />
+    </head>
+    <body>
+        <div class="nav" role="navigation">
+            <ul>
+                <li><g:link class="create" action="create">Create</g:link></li>
+            </ul>
+        </div>
+        <div id="list-student" class="content scaffold-list" role="main">
+            <f:table collection="${studentList}" 
+                properties="['firstName', 'lastName']" />
+        </div>
+    </body>
+</html>
+
+We'll now proceed to the view /grails-app/views/student/create.gsp, which allows the user to create new Students. We'll use the built-in <f:all/> tag, which displays a form for all properties of a given bean:
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="layout" content="main" />
+    </head>
+    <body>
+        <div id="create-student" class="content scaffold-create" role="main">
+            <g:form resource="${this.student}" method="POST">
+                <fieldset class="form">
+                    <f:all bean="student"/>
+                </fieldset>
+                <fieldset class="buttons">
+                    <g:submitButton name="create" class="save" value="Create" />
+                </fieldset>
+            </g:form>
+        </div>
+    </body>
+</html>
+
+
+Finally, let's create the view /grails-app/views/student/show.gsp for viewing and eventually deleting students.
+
+Among other tags, we'll take advantage of <f:display/>, which takes a bean as an argument and displays all its fields
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="layout" content="main" />
+    </head>
+    <body>
+        <div class="nav" role="navigation">
+            <ul>
+                <li><g:link class="list" action="index">Students list</g:link></li>
+            </ul>
+        </div>
+        <div id="show-student" class="content scaffold-show" role="main">
+            <f:display bean="student" />
+            <g:form resource="${this.student}" method="DELETE">
+                <fieldset class="buttons">
+                    <input class="delete" type="submit" value="delete" />
+                </fieldset>
+            </g:form>
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,25 @@
+package com.kht.groovyrest.entity
+
+
+@Entity
+@Table(name="product")
+class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long Id;
+    String prodName;
+    String prodDesc;
+    String prodPrice;
+    String prodImageUrl;
+
+    @OneToMany(
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            mappedBy = 'product'
+    )
+
+    List<Variant> variants
+
+}

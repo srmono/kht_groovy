@@ -1,0 +1,8 @@
+package com.kht.groovyrest.controller
+
+import org.springframework.web.bind.annotation.RestController
+
+@RestController
+
+class ProductController {
+}

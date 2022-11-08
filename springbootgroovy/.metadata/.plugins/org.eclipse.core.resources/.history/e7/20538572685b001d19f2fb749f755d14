@@ -1,0 +1,17 @@
+package com.kht.groovyrest
+
+import javax.persistence.Entity
+
+import org.springframework.stereotype.Repository
+import org.springframework.stereotype.Service
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
+
+@RestController
+@Repository
+@Service
+@RequestMapping
+@Entity
+class Test  {
+	
+}

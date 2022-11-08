@@ -1,0 +1,18 @@
+{
+    "prodName": "Samsung Galaxy S22",
+    "prodDesc": "The latest samung galaxy has awesome features",
+    "prodPrice": 1000,
+    "prodImageUrl": "https://images.samsung.com/is/image/samsung/assets/in/2208/pcd/smartphones/PCD_S22_KV_Merchandising_160X160_pc.png?$160_160_PNG$",
+    "variants": [
+        {
+            "variantName": "Silver Case",
+            "variantColor": "Silver",
+            "variantPrice": 1000
+        },
+        {
+            "variantName": "Black Case",
+            "variantColor": "Black",
+            "variantPrice": 1000
+        }
+    ]
+}

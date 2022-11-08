@@ -1,0 +1,8 @@
+package com.kht.springbootgroovy.repository
+
+import com.kht.springbootgroovy.entity.Product
+import org.springframework.data.repository.PagingAndSortingRepository
+import org.springframework.stereotype.Repository
+
+@Repository
+interface IProductRepository extends PagingAndSortingRepository<Product, Long> {}

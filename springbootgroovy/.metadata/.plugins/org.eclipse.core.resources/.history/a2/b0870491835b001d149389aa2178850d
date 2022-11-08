@@ -1,0 +1,77 @@
+package com.kht.groovyrest.service
+
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Service
+
+import com.kht.groovyrest.entity.Product
+import com.kht.groovyrest.repository.IProductRepository
+
+@Service
+class IProductServiceImpl implements IProductService {
+	
+	@Autowired
+	IProductRepository iProductRepository;
+
+	@Override
+	List<Product> findAll() {
+		
+		iProductRepository.findAll()
+		
+	}
+
+	@Override
+	 Product findById(Long productId) {
+		
+		iProductRepository.findById(productId)
+		
+	}
+
+	@Override
+	 Product saveProduct(Product product) {
+		
+		product.variants?.each{it.product = product}
+		iProductRepository.save(product)
+	}
+
+	@Override
+	Product updateProduct(Long productId, Product product) {
+		
+		def existingProduct = findById(productId)
+		
+		existingProduct.with { ep ->
+			prodName = product.prodName
+			prodDesc = product.prodDesc
+			prodPrice = product.prodPrice
+			prodImageUrl = product.prodImageUrl
+		}
+		
+		def variantsToRemove = []; //ArrayList
+		
+		
+		existingProduct.variants.each {//closure it 
+			def v = product.variants.find { vr -> vr.id == it.id }
+			
+			if(v == null) variantsToRemove.add(it)
+			else it.variantName = v.variantName
+			
+		}
+		
+		existingProduct.variants.removeAll(variantsToRemove)
+		
+		product.variants.each {
+			if (it.id == null) {
+				it.product = existingProduct
+				existingProduct.variants.add(it)
+			}
+		}
+		
+		iProductRepository.save(existingProduct)
+		
+	}
+
+	@Override
+	public Product deleteProduct(Long productId) {
+		
+		iProductRepository.delete(productId)
+	}
+}
